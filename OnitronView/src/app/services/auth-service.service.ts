@@ -14,7 +14,7 @@ export class AuthServiceService {
   ps;
 
  pk  ;
-  isAuth = false ;
+  isAuth =false ;
   constructor(private router : Router,private http: HttpClient) {
 
 
@@ -26,23 +26,17 @@ export class AuthServiceService {
  
 
   //noeuf d'ajout d'une entite
-  signup (user: User): Observable<User> {
+  signup (usera: User): Observable<User> {
     const Url : string = 'http://localhost:8080/api/user';  // URL to web api 
     
-     this.getUserByMail(user.email).subscribe(data =>{
-       this.tuser = data ;
-     });
-    if(this.tuser.email ===user.email){
+     
+  console.log(usera);
 
-
-    }else{
-
-      return this.http.post<User>(Url, user, this.httpOptions).pipe(
-        tap((reponse:any) => console.log('added User ok ')),
+      return this.http.post<User>(Url, usera, this.httpOptions).pipe(
+        tap((reponse:any) =>console.log('save succes')),
         catchError(this.handleError<User>('addUser'))
       );
-    }
-
+    
     
 
 
@@ -74,13 +68,14 @@ export class AuthServiceService {
     
        }else{
        
-    
+    this.isAuth = true;
         console.log("login si");
         sessionStorage.setItem("pwd", this.tuser.password);
         sessionStorage.setItem("email", this.tuser.email);
         sessionStorage.setItem("pkh", this.tuser.public_key);
         sessionStorage.setItem("state", 'true');
         sessionStorage.setItem("reload", "1");
+        sessionStorage.setItem("lock", "false");
     
     console.log("login succefully");
     this.router.navigate(['/dashboard']);
@@ -95,8 +90,8 @@ export class AuthServiceService {
 
   }
   screen(){
-
-
+   
+    
     if(this.isAuth){
 
 this.router.navigate(['/dashboard']);
@@ -106,8 +101,8 @@ this.router.navigate(['/dashboard']);
 
   lockscreen(){
 
-
-    this.isAuth = false ;
+//this.isAuth = false;
+    sessionStorage.setItem("state", 'false');
     this.router.navigate(['/screen']);
 
   }

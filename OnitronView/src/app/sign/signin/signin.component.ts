@@ -15,6 +15,7 @@ message : String;
 
   ngOnInit() {
     this.user = new User();
+    sessionStorage.setItem("state", 'false');
   }
 
   onSubmit(){

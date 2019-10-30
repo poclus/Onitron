@@ -15,6 +15,8 @@ export class LockscreenComponent implements OnInit {
   ngOnInit() {
    // this.autservice.isAuth = false;
     this.couleur = sessionStorage.getItem("couleur");
+    sessionStorage.setItem("lock", "true");
+    sessionStorage.setItem("state", 'false');
   }
 
   onSubmit(){
@@ -23,9 +25,14 @@ export class LockscreenComponent implements OnInit {
     console.log(this.couleur);
 console.log('on submit');
 if(this.password === sessionStorage.getItem("pwd")){
-  console.log('good authentication');
-  this.autservice.isAuth = true;
-  this.autservice.screen();
+  sessionStorage.setItem("lock", "false");
+  
+  if( sessionStorage.getItem("lock")==="false"){
+    console.log('good authentication');
+    sessionStorage.setItem("reload", "1");
+   this.router.navigate(['/dashboard']);
+  }
+ 
 }else{
   console.log('sinon');
   this.router.navigate(['/screen'])

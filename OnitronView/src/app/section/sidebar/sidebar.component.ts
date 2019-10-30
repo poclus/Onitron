@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private autservice : AuthServiceService) { }
 
   ngOnInit() {
+  }
+
+  onLogscreen(){
+
+    console.log("onlogscreen");
+    this.autservice.lockscreen();
+
+
   }
 
 }
