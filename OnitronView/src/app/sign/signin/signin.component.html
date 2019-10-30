@@ -1,0 +1,25 @@
+<div id="single-wrapper">
+	<form  class="frm-single" (ngSubmit)="onSubmit()">
+		<div class="inside">
+			<div class="title"><strong>Onitron</strong></div>
+			<!-- /.title -->
+			<div class="frm-title">Login</div>
+			<!-- /.frm-title -->
+			<div class="frm-input"><input type="text"  placeholder="Enter your email" class="frm-inp" [(ngModel)]="user.email" name="email"><i class="fa fa-user frm-ico"></i></div>
+			<!-- /.frm-input -->
+			<div class="frm-input"><input type="password" name="password" [(ngModel)]="user.password" placeholder="Enter your Password" class="frm-inp"><i class="fa fa-lock frm-ico"></i></div>
+			<!-- /.frm-input -->
+			
+			<!-- /.clearfix -->
+			<button type="submit" class="frm-submit">Login<i class="fa fa-arrow-circle-right"></i></button>
+			
+			<!-- /.row -->
+			<a href="/signup" class="a-link"><i class="fa fa-key"></i>New to Onitron? Register.</a>
+			<div class="frm-footer">Onitron © 2019.</div>
+			<!-- /.footer -->
+		</div>
+		<!-- .inside -->
+	</form>
+	<!-- /.frm-single -->
+</div><!--/#single-wrapper -->
+

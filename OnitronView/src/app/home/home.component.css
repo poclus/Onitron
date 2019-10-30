@@ -9,6 +9,10 @@
   padding-top: 10px;
 
 }
+.jam-align{
+
+  text-align: center !important;
+}
 .row div{
 
   display: inline-block !important;
@@ -23,8 +27,9 @@
   text-align: left !important;
 }
 .text-device{
+
   color: black;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-align: right !important;
 
 }
@@ -32,6 +37,9 @@
 
   width: 100%;
 
+}
+div{
+  text-align: justify;
 }
 .text-paye{
 
